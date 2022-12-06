@@ -1,5 +1,6 @@
-import Tkinter
+import tkinter
 
-top = Tkinter.Tk()
+top = tkinter.Tk()
 
+# Code to add widgets will go here...
 top.mainloop()
