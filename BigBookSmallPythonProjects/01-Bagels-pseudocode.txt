@@ -1,0 +1,15 @@
+Pico	One digit is corret but in the wrong position
+Fermi	One digit is correct and in the right position
+Bagels	No digit is correct
+
+10 guesses
+
+
+STEP 1: input user's guess
+STEP 2: generate a random 3 digit number
+STEP 3: divide the generated random number into 3 parts (hundreds, tens, thousand); name a function "seeDigit"
+STEP 4: use seeDigit function for the user input
+STEP 5: compare the outputs of seeDigit function of user's input and the generated random number
+STEP 6: Follow conditions from above
+
+
