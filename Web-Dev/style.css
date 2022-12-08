@@ -1,0 +1,29 @@
+.main{
+    border: none;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+
+table{
+    width: 100%;
+}
+table, th, td{
+    text-align: center;
+    border-style: none;
+    border-collapse: collapse;
+}
+td{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+}
+th{
+    font-size: 1.4em;
+    padding-top: 10;
+    text-align: center;
+    background-color: #1cb2f5;
+    color: white;
+}
