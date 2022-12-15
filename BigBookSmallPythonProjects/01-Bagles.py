@@ -4,10 +4,10 @@ def main():
     randomNumber = randint(100, 999)
     guessesLeft = 10
 
-    print(randomNumber)
+    # print(randomNumber)
     for i in range(guessesLeft):        
         remainingGuess = guessesLeft - i
-        print("\nGuess the 3 digit number. You have {} tries.".format(remainingGuess))
+        print("\n\nGuess the 3 digit number. You have {} tries.".format(remainingGuess))
         
         userGuess = int(input("Enter your guess: "))
         while (userGuess>999 or userGuess<100):     # checks if the input is only 3 digit number
@@ -18,32 +18,20 @@ def main():
             print("Correct!")
             break
         else:
-            if PFB(userGuess, randomNumber):
-                multiplier = pico(userGuess,randomNumber)
-                print("Pico "*multiplier)
-            elif fermi(userGuess):
-                multiplier = fermi(userGuess,randomNumber)
-                print("Fermi"*multiplier)
+            list_1 = seeDigit(userGuess)            # listed user input
+            list_2 = seeDigit(randomNumber)         # listed randomly generated value
+            check = any(digit in list_1 for digit in list_2)
+            if check == True:                     # confirms if a digit is in list 1 is in list 2
+                for i in range(len(list_1)):
+                    if list_1[i] == list_2[i]:
+                        print("Fermi", end=" " )
+                    else:
+                        for j in range(len(list_1)):
+                            if list_1[i] == list_2[j]:
+                                print("Pico", end=" ")
             else:
-                print("Bagels")
-
-    print("You lose. The answer is {}.".format(randomNumber))
-
-def PFB(userInput, generatedNum):
-    list_1 = seeDigit(userInput)            # listed user input
-    list_2 = seeDigit(generatedNum)         # listed randomly generated value
-    check = any(digit in list_1 for digit in list_2)
-    if check == True:                     # confirms if a digit is in list 1 is in list 2
-        for digit in list_1:   
-            n=0
-            # FERMI
-            if digit == list_2[n]:  # if a digit in list 1 is same with its corresponding index in list 2, fermi
-                return 1
-            # PICO
-            if digit != list_2[n]:  # if a digit in list 1 is not same with its corresponding index in list 2, fermi
-                return 2
-            n+=1
-    
+                print("Bagels", end="")
+    print("The answer is {}.".format(randomNumber))
 
 def seeDigit(digit):
     hundreds = digit//100                   # Gets the hundreds digit
@@ -51,39 +39,10 @@ def seeDigit(digit):
     ones = digit-(hundreds*100)-(tens*10)   # Gets the ones digit
     return [hundreds, tens, ones]
 
-def fermi(userInput, generatedNum):
-    list_1 = seeDigit(userInput)            # listed user input
-    list_2 = seeDigit(generatedNum)         # listed randomly generated value
-    check = any(digit in list_1 for digit in list_2)
-    similarCounter = 0 
-    if check == True:                       # confirms if a digit is in list 1 is in list 2
-        for digit in list_1:   
-            n=0
-            if digit == list_2[n]:  # if a digit in list 1 is same with its corresponding index in list 2, fermi
-                similarCounter+=1
-            n+=1
-    return similarCounter
-
-def pico(userInput, generatedNum):
-    list_1 = seeDigit(userInput)            # listed user input
-    list_2 = seeDigit(generatedNum)         # listed randomly generated value
-    check = any(digit in list_1 for digit in list_2)
-    similarCounter = 0 
-    if check == True:                       # confirms if a digit is in list 1 is in list 2
-        for digit in list_1:
-            n=0
-            if digit != list_2[n]:  # if a digit in list 1 is not same with its corresponding index in list 2, pico
-                similarCounter+=1
-            n+=1
-    return similarCounter
-
-def bagels(userInput, generatedNum):
-    list_1 = seeDigit(userInput)            # listed user input
-    list_2 = seeDigit(generatedNum)         # listed randomly generated value
-    check = any(digit in list_1 for digit in list_2)
-    if check != False:
-        return True
-
 if __name__ == '__main__':
-    main()
-# print(seeDigit(123))
+    while True:
+        main()
+        ans = input("\nDo you want to play again? (yes or no): ")
+        if ans == "no":
+            print("Thanks for playing!")
+            break
