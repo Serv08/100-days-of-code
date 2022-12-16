@@ -1,3 +1,8 @@
-lists = [0, 1,2,3,4]
-for i in range(len(lists)):
-    print(i)
+g = int(input("asdf: "))
+def gg(ass):
+    asset = []
+    for i in range(ass):
+        asset.append(i)
+    return asset
+
+print (gg(g))
