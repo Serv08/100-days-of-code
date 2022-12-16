@@ -4,6 +4,9 @@ def main():
     randomNumber = randint(100, 999)
     guessesLeft = 10
 
+    print("Guess the number")
+    print("Fermi if a digit is right and in correct position\nPico if a digit is right but in wrong position\nBagles if none of the digits are correct")
+
     # print(randomNumber)
     for i in range(guessesLeft):        
         remainingGuess = guessesLeft - i
