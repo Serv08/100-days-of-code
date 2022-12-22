@@ -1,20 +1,4 @@
-from random import *
-
-def main():
-    # how many people in the room?
-    people = int(input("Enter the number of people in the room:\t"))
-
-    generated_bday = (randomDateGenerator(people))
-
-    # creates new list that doesn't have repeated birthday 
-    bdays =[]
-    [bdays.append(item) for item in generated_bday if item not in bdays]
-
-    twin_counter = len(generated_bday) - len(bdays)
-    
-    # the probability of having twins in the same room is
-    twins = twin_counter/people
-    print(twins,'%')
+from random import *12
 
 # parameter is for the number of randomly generated birthdays
 def randomDateGenerator(peeps):
@@ -44,4 +28,16 @@ def randomDateGenerator(peeps):
 
 
 if __name__ == '__main__':
-    main()
+    people = int(input("Enter the number of people in the room:\t"))
+
+    generated_bday = (randomDateGenerator(people))
+
+    # creates new list that doesn't have repeated birthday 
+    bdays =[]
+    [bdays.append(item) for item in generated_bday if item not in bdays]
+
+    twin_counter = len(generated_bday) - len(bdays)
+    
+    # the probability of having twins in the same room is
+    twins = twin_counter/people
+    print(twins,'%')
