@@ -5,4 +5,4 @@ def gg(ass):
         asset.append(i)
     return asset
 
-print (gg(g))
+print (len(gg(g)))
