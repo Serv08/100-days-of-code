@@ -10,7 +10,7 @@ if leap == 'yes':
     days = 366
 elif leap == 'no':
     days = 365
-print(days)
+# print(days)
 peeps = int(input("Enter number of people:\t"))
 
 proba1 = facto(days)/facto(days-peeps)
