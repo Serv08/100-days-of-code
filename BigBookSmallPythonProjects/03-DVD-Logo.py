@@ -1,4 +1,4 @@
-import sys, random, time, bext
+import sys, random, time, bext, tensorflow
 
 # Constants:
 WIDTH, HEIGHT = bext.size()
